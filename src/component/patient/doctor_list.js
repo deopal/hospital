@@ -83,9 +83,11 @@ export default function Doctorlist(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-        >{doc.image ? '' 
-        : <Avatar variant='square' className="w-100 h-100" style={{alignSelf: 'center'}}>
-        </Avatar>}
+        >
+        <Avatar 
+        src={doc.image ? doc.image :''}
+        variant='square' className="w-100 h-100" style={{alignSelf: 'center'}}>
+        </Avatar>
         </CardMedia>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" style={{textTransform:'capitalize', textAlign:'center'}}>
@@ -113,7 +115,8 @@ export default function Doctorlist(props) {
       <CardActions>
       <Link to={{
                 pathname:'/appointment', 
-                id:doc._id
+                id:doc._id,
+                name:doc.firstName
               }}  style={{textDecoration:'none'}}>
         <Button size="small" color="primary">
           Make an appointment

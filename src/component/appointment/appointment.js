@@ -24,6 +24,7 @@ export default function Appointment(props){
     const dispatch=useDispatch();
 
     const doc_id=props.location.id;
+    const doc_name=props.location.name;
     // console.log(doc_id);
     const pat_id=localStorage.getItem('userId');
 
@@ -67,6 +68,7 @@ export default function Appointment(props){
             doctorId:doc_id,
             patientId:pat_id,
             patientName:name,
+            doctorName:doc_name,
             age:age,
             adharNumber:aadhar,
             gender:gender,

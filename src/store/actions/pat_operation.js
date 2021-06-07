@@ -6,6 +6,7 @@ export const make_appointment=(patient,history)=>{
 
 
     const pat=patient;
+    console.log(patient);
     axios.post("/api/patient/makeAppointment",{...pat})
     .then(res=>{
         if(res.data.error){
@@ -14,7 +15,7 @@ export const make_appointment=(patient,history)=>{
         }
         else{
             alert(res.data.message);
-            history.push("/");
+            history.push("/my-appointment");
         }
     }).catch(err=>{
         console.log(err);
@@ -162,7 +163,7 @@ export const patGetNotification=(id)=>{
         axios.get(`/api/patient/getNotification/${id}`)
         .then(res=>{
             console.log(res.data);
-            dispatch(patSetNotification(res.data.notification));
+            dispatch(patSetNotification(res.data));
         })
         .catch(err=>{
             console.log(err);
