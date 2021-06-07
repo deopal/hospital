@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import {makeStyles } from '@material-ui/core';
 
 import {Table} from 'react-bootstrap';
 
@@ -10,29 +9,7 @@ import * as actions from "../../store/actions/doc_operation";
 
 
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
 
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%',
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-  media: {
-    height: 180,
-  },
-}));
 
 export default function Patientlist(props) {
 
@@ -52,7 +29,6 @@ export default function Patientlist(props) {
 
 
 
-  const classes = useStyles();
 
 
   return (
@@ -86,7 +62,7 @@ export default function Patientlist(props) {
                   }}>View details</Link></td>
                 </tr>
               );
-            }) : ''}
+            }) : '' }
           </tbody>
         </Table>
       </div>

@@ -43,3 +43,18 @@ export const docEditProfile=(profile)=>{
     });
 };
 }
+
+export const uploadImage=(image)=>{
+    const id=localStorage.getItem('userId');
+    return dispatch=>{
+        axios.post(`/api/doctor/image/${id}`,{image}
+    ).then(res=>{
+        console.log(res.data);
+        dispatch(docSetProfile(res.data.doctor));
+        alert("Profile updated successfully");
+    }).catch(err=>{
+        console.log(err);
+        alert("something went wrong");
+    });
+    }
+}

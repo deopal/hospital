@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import {  Redirect } from 'react-router-dom';
 
 
 
@@ -9,7 +9,6 @@ import {
     Card,
     CardContent,
     Typography,
-    makeStyles,
     Paper,
     CardActionArea,
     Divider,
@@ -21,29 +20,6 @@ import * as actions from "../../store/actions/doc_operation";
 
 
 
-const useStyles = makeStyles((theme) => ({
-    paper: {
-        marginTop: theme.spacing(8),
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-    },
-    avatar: {
-
-        margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
-    },
-    form: {
-        width: '100%',
-        marginTop: theme.spacing(1),
-    },
-    submit: {
-        margin: theme.spacing(3, 0, 2),
-    },
-    media: {
-        height: 180,
-    },
-}));
 
 export default function Appointmentdetail(props) {
 
@@ -67,13 +43,11 @@ export default function Appointmentdetail(props) {
     const a_id = param;
 
     const tryList = useCallback(() => {
-        const id = localStorage.getItem('userId');
 
         dispatch(actions.getappointmentbyId(a_id));
 
     }, [dispatch, a_id]);
 
-    const pat_id = list ? list.patientId : '';
 
 
     useEffect(() => {
@@ -95,7 +69,6 @@ export default function Appointmentdetail(props) {
 
 
 
-    const classes = useStyles();
 
 
     return (

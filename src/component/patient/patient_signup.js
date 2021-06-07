@@ -104,7 +104,7 @@ export default function SignUp(props) {
         <Avatar className={classes.avatar}>
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Sign up (as patient)
         </Typography>
         <ValidatorForm className={classes.form} instantValidate={false} onSubmit={submitHandler}>
           <Grid container spacing={2}>

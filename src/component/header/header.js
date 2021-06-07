@@ -31,7 +31,7 @@ export default function Header(props) {
     <Nav className="m-auto " style={{fontSize:'1.5em', color:'black'}} activeKey={window.location.pathname}>
       <Nav.Link href="/"  style={{color:'gray'}} >Home</Nav.Link>
       <Nav.Link href="/about"  style={{color:'gray'}}>About</Nav.Link>
-      <NavDropdown title="Pages" id="collasible-nav-dropdown" style={{color:'gray'}}>
+      {auth ? <NavDropdown title="Pages" id="collasible-nav-dropdown" style={{color:'gray'}}>
         {role ?
         <NavDropdown.Item href="/profile">My profile</NavDropdown.Item>
         : ''}
@@ -39,7 +39,7 @@ export default function Header(props) {
         <NavDropdown.Item href="/my-appointment">My appointment</NavDropdown.Item>
         : ''}
         
-      </NavDropdown>
+      </NavDropdown> :''}
       {!auth || role ==='patient' ? 
       <Nav.Link href="/doctors" style={{color:'gray'}}>Doctors</Nav.Link>
       : ''}

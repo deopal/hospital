@@ -86,7 +86,31 @@ export const addReview=(id,reviews)=>{
             }
         })
     }
+};
+
+
+export const contactUs=(contact)=>{
+    return dispatch=>{
+    axios.post("/api/doctor/contact",{...contact})
+    .then(res=>{
+        console.log(res.data);
+        if(res.data.error){
+        console.log(res.data.error);
+        alert(res.data.error);
+        }
+        else{
+        console.log(res.data);
+        alert(res.data.message);
+        }
+    })
+    .catch(err=>{
+        console.log(err);
+        alert(err);
+    })
 }
+};
+
+
 
 // export const getPatientListbyId=(id)=>{
 //     return dispatch=>{

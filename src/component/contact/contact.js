@@ -1,22 +1,38 @@
-import React,{useState} from 'react';
+import React from 'react';
+
+import {useDispatch} from 'react-redux';
 
 import{Form,Button,Card} from 'react-bootstrap';
 import "./contact.css";
 
+import * as patactions from "../../store/actions/pat_operation";
+import * as docactions from "../../store/actions/doc_operation";
+
 
 export default function Contact(){
+
+    const dispatch=useDispatch();
     
-
-    const [validated, setValidated] = useState(false);
-
   const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+    event.preventDefault();
+        const contact={
+            userId:localStorage.getItem('userId'),
+            role:localStorage.getItem('role'),
+            name:event.target.name.value,
+            email:event.target.email.value,
+            number:event.target.number.value,
+            message:event.target.message.value
 
-    setValidated(true);
+        }
+        const role=localStorage.getItem('role');
+        if(role==='patient'){
+            dispatch(patactions.contactUs(contact));
+        }
+        if(role==='doctor'){
+            dispatch(docactions.contactUs(contact));
+        }
+        
+    
   };
 
     return(
@@ -24,7 +40,7 @@ export default function Contact(){
         <div className="main">
          <div className="bg-dark m-auto row p-2 nav" style={{color:'white'}}>
       <h4>hospital@treatment.com</h4>
-      <h4>+1 23456 78945</h4>
+      <h4>+91 23456 78945</h4>
       </div>
      
    
@@ -47,36 +63,36 @@ export default function Contact(){
                 <Card.Title className="head"><h2>Contact us</h2></Card.Title>
                
  
-                <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                <form  onSubmit={handleSubmit}>
                    
                     <Form.Group controlId="name" className="input">
                         <Form.Label>Name*</Form.Label>
-                        <Form.Control  placeholder="Name" required />
+                        <Form.Control  name="name" placeholder="Name" required />
                     </Form.Group>
                    
                   
                     
                     <Form.Group controlId="email" className="input">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Email address" />
+                        <Form.Control type="email" name="email" placeholder="Email address" required />
                     </Form.Group>
                     <Form.Group controlId="number" className="input">
                         <Form.Label>Contact number*</Form.Label>
-                        <Form.Control type="email" placeholder="Contact number" />
+                        <Form.Control type="number" name="number" placeholder="Contact number" required/>
                     </Form.Group>
                     
                   
                    
                     <Form.Group controlId="message" className="input">
                         <Form.Label>Your message*</Form.Label>
-                        <Form.Control as="textarea" placeholder="Write your message here" />
+                        <Form.Control as="textarea"name="message" placeholder="Write your message here" required/>
                     </Form.Group>
                    
                     <Button variant="success" type="submit" className="btn">
                     Submit
                     </Button>
 
-                </Form>
+                </form>
             </Card.Body>
             </Card>
                 </div>

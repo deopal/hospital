@@ -13,7 +13,7 @@ export const patGetProfile=(id)=>{
 
     return dispatch=>{
      
-    axios.get(`http://localhost:2000/api/patient/patientSetting/${doc_id}` 
+    axios.get(`/api/patient/patientSetting/${doc_id}` 
     ).then(res=>{
         
         const profile=res.data;
@@ -42,4 +42,19 @@ export const patEditProfile=(profile)=>{
         alert("something went wrong");
     });
 };
+}
+
+export const uploadImage=(image)=>{
+    const id=localStorage.getItem('userId');
+    return dispatch=>{
+        axios.post(`/api/patient/image/${id}`,{image}
+    ).then(res=>{
+        console.log(res.data);
+        dispatch(patSetProfile(res.data.patient));
+        alert("Profile picture updated successfully");
+    }).catch(err=>{
+        console.log(err);
+        alert("something went wrong");
+    });
+    }
 }

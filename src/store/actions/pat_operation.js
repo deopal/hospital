@@ -128,5 +128,26 @@ export const endAppointment=(id)=>{
             }
         })
     }
+};
+
+export const contactUs=(contact)=>{
+    return dispatch=>{
+    axios.post("/api/patient/contact",{...contact})
+    .then(res=>{
+        if(res.data.error){
+            console.log(res.data.error);
+        alert(res.data.error);
+        }
+        else{
+        console.log(res.data);
+        alert(res.data.message);
+        }
+        
+    })
+    .catch(err=>{
+        console.log(err);
+        alert(err);
+    })
 }
+};
 

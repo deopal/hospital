@@ -82,7 +82,7 @@ const changepassword = (event) => {
         <Avatar className={classes.avatar}>
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Sign in (as patient)
         </Typography>
         <ValidatorForm className={classes.form} instantValidate={false} onSubmit={submitHandler}>
           <TextValidator
@@ -125,12 +125,12 @@ const changepassword = (event) => {
           >
             Sign In
           </Button>
-          <Grid container>
-            <Grid item xs>
+          <Grid container justify="flex-end">
+            {/* <Grid item xs>
               <NavLink to="#" variant="body2">
                 Forgot password?
               </NavLink>
-            </Grid>
+            </Grid> */}
             <Grid item>
               <NavLink to="/patient_signup" variant="body2">
                 {"Don't have an account? Sign Up"}

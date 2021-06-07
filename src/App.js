@@ -55,7 +55,7 @@ function App() {
         <Route path="/patient_signin"  component={patient_signin} />
         <Route path="/patient_signup"  component={patient_signup} />
         <Route path="/doctors"  component={Doctorlist} />
-        <Route path="/contact"  component={contact} />
+        <Route path="/contact"  component={patient_signin} />
         <Route path="/" exact component={Home} />
         <Redirect to='/' />
         </Switch>
