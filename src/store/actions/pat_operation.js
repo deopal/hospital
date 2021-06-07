@@ -151,3 +151,37 @@ export const contactUs=(contact)=>{
 }
 };
 
+export const patSetNotification=(note)=>{
+    return{
+        type:actionTypes.PAT_SET_NOTIFICATION,
+        notification:note
+    }; 
+}
+export const patGetNotification=(id)=>{
+    return dispatch=>{
+        axios.get(`/api/patient/getNotification/${id}`)
+        .then(res=>{
+            console.log(res.data);
+            dispatch(patSetNotification(res.data.notification));
+        })
+        .catch(err=>{
+            console.log(err);
+        });
+    }
+};
+
+export const removeNotification=(userId,a_id)=>{
+    const patientId=userId;
+    const appointmentId=a_id;
+    return dispatch=>{
+        axios.post(`/api/patient/removeNotification`,{patientId,appointmentId})
+        .then(res=>{
+            dispatch(patSetNotification(res.data.notification));
+            console.log(res.data);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }
+}
+

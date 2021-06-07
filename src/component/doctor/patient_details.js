@@ -55,7 +55,8 @@ export default function Appointmentdetail(props) {
     }, [tryList]);
 
     const approveAppointment = (id) => {
-        dispatch(actions.approveAppointment(id));
+        const pat_id=list.patientId;
+        dispatch(actions.approveAppointment(id,pat_id));
     }
 
     const reviewSubmitHandler=(e)=>{
@@ -153,7 +154,7 @@ export default function Appointmentdetail(props) {
 
             </div>
 
-
+            {list ? list.status === 'approved' ? 
             <Form onSubmit={reviewSubmitHandler} className="p-4">
                 <Form.Row className="align-items-center mb-4">
                     <Col xs="auto" md={8} lg={8} className="align-items-center m-auto" >
@@ -163,6 +164,7 @@ export default function Appointmentdetail(props) {
                             className='m-2'
                             name="review"
                             id="review"
+                            required
                         />
                     </Col>
                     <Col xs="auto" md={4} lg={4} className="align-items-center m-auto">
@@ -171,7 +173,7 @@ export default function Appointmentdetail(props) {
                      </Button>
                     </Col>
                 </Form.Row>
-            </Form>
+            </Form> :'' :''}
 
 
             <div>

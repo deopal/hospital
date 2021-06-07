@@ -9,6 +9,7 @@ import './header.css';
 import { useSelector ,useDispatch} from 'react-redux';
 import * as doc_actions from "../../store/actions/doc_auth_action";
 import * as pat_actions from "../../store/actions/pat_auth_action";
+import Notification from "../notification/notification";
 
 
 
@@ -60,7 +61,7 @@ export default function Header(props) {
     </Nav> 
     : (role==='doctor') ?
     <Nav >
-
+    <Notification  role='doctor' />
       <h4 style={{color:'black',textTransform:'capitalize'}} className="m-auto mr-4">Dr. {doc_username}</h4>
       <Nav activeKey={window.location.pathname} >
       <Button className="m-2" variant="success" onClick={()=>dispatch(doc_actions.logout())}>
@@ -71,7 +72,7 @@ export default function Header(props) {
     </Nav> 
     :
     <Nav>
-
+    <Notification  role='patient' />
       <h4 style={{color:'black',textTransform:'capitalize'}} className="m-auto mr-4">{pat_username}</h4>
       <Nav activeKey={window.location.pathname} >
       <Button className="m-2" variant="primary" onClick={()=>dispatch(pat_actions.logout())}>

@@ -9,6 +9,7 @@ const initialState={
     role:null,
     docList:null,
     appointment:null,
+    notification:null,
     authRedirect:'/'
 }
 
@@ -72,6 +73,12 @@ const patSetAppointment=(state,action)=>{
         appointment:action.appointment
     }
 }
+const patSetNotification=(state,action)=>{
+    return{
+        ...state,
+        notification:action.notification
+    }
+}
 
 const reducer=(state=initialState,action)=>{
     switch (action.type){
@@ -82,6 +89,7 @@ const reducer=(state=initialState,action)=>{
         case actionTypes.PAT_SET_PROFILE: return patSetProfile(state,action);
         case actionTypes.PAT_GET_DOCTORLIST: return patSetDoctorlist(state,action);
         case actionTypes.PAT_GET_APPOINTMENT: return patSetAppointment(state,action);
+        case actionTypes.PAT_SET_NOTIFICATION: return patSetNotification(state,action);
         default: return state;
     }
 };

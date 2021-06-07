@@ -52,9 +52,10 @@ export const getappointmentbyId=(id)=>{
     }
 }
 
-export const approveAppointment=(id)=>{
+export const approveAppointment=(id,pat_id)=>{
+    const patientId=pat_id;
     return dispatch=>{
-        axios.post(`/api/doctor/approveAppointments/${id}`)
+        axios.post(`/api/doctor/approveAppointments/${id}`,{patientId})
         .then(res=>{
             if(res.data.error){
                 console.log(res.data.error);
@@ -109,6 +110,40 @@ export const contactUs=(contact)=>{
     })
 }
 };
+
+export const docSetNotification=(note)=>{
+    return{
+        type:actionTypes.DOC_SET_NOTIFICATION,
+        notification:note
+    }; 
+}
+export const docGetNotification=(id)=>{
+    return dispatch=>{
+        axios.get(`/api/doctor/getNotification/${id}`)
+        .then(res=>{
+            console.log(res.data);
+            dispatch(docSetNotification(res.data));
+        })
+        .catch(err=>{
+            console.log(err);
+        });
+    }
+}
+
+export const removeNotification=(userId,a_id)=>{
+    const doctorId=userId;
+    const appointmentId=a_id;
+    return dispatch=>{
+        axios.post(`/api/doctor/removeNotification`,{doctorId,appointmentId})
+        .then(res=>{
+            dispatch(docSetNotification(res.data.notification));
+            console.log(res.data);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }
+}
 
 
 
