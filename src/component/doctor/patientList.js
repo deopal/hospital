@@ -46,13 +46,14 @@ export default function Patientlist(props) {
           </thead>
           <tbody>
             {list ? list.map((pat, i) => {
+              const createDate=new Date(pat.createdAt).toLocaleString('en-IN').split(',')[0];
 
               return (
                 <tr key={pat._id}>
                   <td>{i+1}</td>
                   <td style={{textTransform:'capitalize'}}>{pat.patientName}</td>
                   <td>{pat.healthProblems}</td>
-                  <td>{pat.createdAt}</td>
+                  <td>{createDate}</td>
                   <td>{pat.status}</td>
                   <td><Link to={{
                     pathname:"/appointment_details",

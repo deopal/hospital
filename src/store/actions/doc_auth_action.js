@@ -91,7 +91,7 @@ export const doc_auth_signin=(email,password,history)=>{
                 console.log(token);
                 dispatch(authsuccess(response.data.token,response.data.user._id,response.data.user.fullName));
                 dispatch(checkAuthTimeout(24*60*60));
-                alert(response.data.message);
+                // alert(response.data.message);
                 history.push("/");
             }
         })

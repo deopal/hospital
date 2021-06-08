@@ -51,7 +51,7 @@ export const uploadImage=(image)=>{
     ).then(res=>{
         console.log(res.data);
         dispatch(docSetProfile(res.data.doctor));
-        alert("Profile updated successfully");
+        // alert("Profile updated successfully");
     }).catch(err=>{
         console.log(err);
         alert("something went wrong");

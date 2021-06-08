@@ -72,7 +72,7 @@ export const approveAppointment=(id,pat_id)=>{
 export const addReview=(id,reviews)=>{
     const review={
         detail:reviews,
-        date:new Date()
+        date:new Date().toLocaleString('en-IN').split(',')[0]
     };
     return dispatch=>{
         axios.post(`/api/doctor/addReviews/${id}`,{review})
@@ -82,7 +82,6 @@ export const addReview=(id,reviews)=>{
             }
             else{
                 console.log(res.data);
-                alert(res.data.message);
                 dispatch(setAppointment(res.data.appointment));
             }
         })

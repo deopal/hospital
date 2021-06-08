@@ -49,13 +49,14 @@ export default function Doctorlist(props) {
           </thead>
           <tbody>
             {list ? list.map((doc, i) => {
-
+              const createDate=new Date(doc.createdAt).toLocaleString('en-IN').split(',')[0];
               return (
                 <tr key={doc._id}>
                   <td>{i+1}</td>
                   <td>{doc.doctorName}</td>
                   <td>{doc.healthProblems}</td>
-                  <td>{doc.createdAt}</td>
+                  
+                  <td>{createDate}</td>
                   <td>{doc.status}</td>
                   <td><Link to={{
                     pathname:"/appointment_details",

@@ -108,7 +108,7 @@ export const getDoctorsListbyId=(id)=>{
             dispatch(setDoctorsList(list));}
         })
         .catch(err=>{
-            alert("something went wrong");
+            // alert("something went wrong");
             console.log(err);
         })
     }
