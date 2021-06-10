@@ -172,7 +172,7 @@ export default function DocProfile() {
               <Box
                 style={{
                   margin: 'auto',
-                  alignItems: 'space-arround',
+                  alignItems: 'center',
                   display: 'flex',
                   flexDirection: 'column'
                 }}

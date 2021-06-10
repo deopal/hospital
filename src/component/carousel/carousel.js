@@ -21,44 +21,42 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                     <Image
                       className="d-block w-100"
                       src={slider_1}
-                      style={{height:"38rem"}}
+                      style={{height:"90vh"}}
                       alt="First slide"
                     />
-                    <Carousel.Caption className=" p-2" style={{color:'grey'}}>
-                      <h3 style={{textDecoration:'underline'}}>Pneumonia Treatment and Recovery </h3>
-                      <p>Hospital-acquired pneumonia is an infection of the lungs that occurs during a hospital stay.
-                         This type of pneumonia can be very severe. Sometimes, it can be fatal.</p>
+                    <Carousel.Caption  style={{color:'gray'}}>
+                      <h3 style={{textDecoration:'underline'}}>Best medical facilities</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque,
+                        aliquet sit amet elementum vel, vehicula eget eros. </p>
                     </Carousel.Caption>
                   </Carousel.Item>
                   <Carousel.Item >
                     <Image
                       className="d-block w-100"
                       src={slider_2}
-                      style={{height:"38rem"}}
+                      style={{height:"90vh"}}
                       alt="Second slide"
                     />
             
-                    <Carousel.Caption className=" p-2 " style={{color:'grey'}}>
+                    <Carousel.Caption  style={{color:'white'}}>
                       <h3 style={{textDecoration:'underline'}}>Best medical facilities</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque,  <br />
-                        aliquet sit amet elementum vel, vehicula eget eros. Vivamus arcu metus, mattis <br />
-                         sed sagittis at, sagittis quis neque. Praesent</p>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque,
+                        aliquet sit amet elementum vel, vehicula eget eros.</p>
                     </Carousel.Caption>
                   </Carousel.Item>
                   <Carousel.Item>
                     <Image
                       className="d-block w-100"
                       src={slider_3}
-                      style={{height:"38rem"}}
+                      style={{height:"90vh"}}
                       alt="Third slide"
                     />
             
-                    <Carousel.Caption className=" p-2" style={{color:'grey'}}>
+                    <Carousel.Caption  style={{color:'grey'}}>
                       <h3 style={{textDecoration:'underline'}}>Best medical facilities</h3>
                       <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque,  <br />
-                        aliquet sit amet elementum vel, vehicula eget eros. Vivamus arcu metus, mattis <br />
-                         sed sagittis at, sagittis quis neque. Praesent
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque,
+                        aliquet sit amet elementum vel, vehicula eget eros. 
                       </p>
                     </Carousel.Caption>
                   </Carousel.Item>

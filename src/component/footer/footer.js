@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" >
@@ -21,7 +22,9 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    position:'relative',
+    bottom:'0'
   },
   main: {
     marginTop: theme.spacing(8),
