@@ -14,6 +14,7 @@ export default function about(){
 
     return(
         <React.Fragment>
+        
         <div className="mains">
             <div className="row p-2 m-auto">
             <div className="col-sm-12 col-lg-6 img p-4 m-auto">

@@ -68,7 +68,7 @@ export default function Notification(props) {
                 <div>
                     <IconButton aria-label="cart" className="mr-2">
                         <Badge badgeContent={array.length} color="secondary">
-                            <NotificationsIcon fontSize="large" color="primary" {...bindTrigger(popupState)} />
+                            <NotificationsIcon fontSize="large" color="dark" {...bindTrigger(popupState)} />
                         </Badge>
                     </IconButton>
 
@@ -90,14 +90,14 @@ export default function Notification(props) {
                                         <React.Fragment>
                                             <div>
                                                 <Link 
-                                                style={{textDecoration:'none'}}
+                                                style={{textDecoration:'none' , fontSize:'15px'}}
                                                 to={{
                                                     pathname: "/appointment_details",
                                                     params: {
                                                         id: item.a_id
                                                     }
                                                 }}><spin>{item.message}</spin></Link>
-                                                <Button variant="contained" color="secondary" onClick={() => removeNotification(item.a_id)}> <DeleteForeverIcon color='action' /></Button>
+                                                <Button size="small" variant="contained" color="secondary" onClick={() => removeNotification(item.a_id)}> <DeleteForeverIcon color='action' /></Button>
 
                                             </div>
                                             <hr />

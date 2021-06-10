@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import {  Redirect } from 'react-router-dom';
+import Spinner from "../spinner/spinner";
 
 
 
@@ -67,18 +68,22 @@ export default function Appointmentdetail(props) {
 
 
 
-
+let loader =<Spinner />;
 
 
 
 
     return (
+        <div>
+            {!list ? loader :
+        
         <div className="container p-2">
+        
             <div className=" m-4 p-2">
 
 
 
-                {list ? <Paper elevation={3}>
+                <Paper elevation={3}>
                     <Card>
                         <CardActionArea>
 
@@ -150,11 +155,11 @@ export default function Appointmentdetail(props) {
 
 
                     </Card>
-                </Paper> : ''}
+                </Paper>
 
             </div>
 
-            {list ? list.status === 'approved' ? 
+            {list.status === 'approved' ? 
             <Form onSubmit={reviewSubmitHandler} className="p-4">
                 <Form.Row className="align-items-center mb-4">
                     <Col xs="auto" md={8} lg={8} className="align-items-center m-auto" >
@@ -173,11 +178,11 @@ export default function Appointmentdetail(props) {
                      </Button>
                     </Col>
                 </Form.Row>
-            </Form> :'' :''}
+            </Form> :''}
 
 
             <div>
-                {list ? list.reviews ? <Table striped bordered hover size="sm" style={{ textAlign: 'center' }}>
+                {list.reviews ? <Table striped bordered hover size="sm" style={{ textAlign: 'center' }}>
                     <thead>
                         <tr>
                             <th>#</th>
@@ -197,8 +202,9 @@ export default function Appointmentdetail(props) {
                             );
                         })}
                     </tbody>
-                </Table> : '' : ''}
+                </Table> : ''}
             </div>
+        </div>}
         </div>
     );
 };

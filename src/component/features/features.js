@@ -13,8 +13,9 @@ const feature=()=>{
     return(
       <React.Fragment>
         <div className="row m-2 ">
-            <Paper elevation={3} className="col-sm-12 col-lg-3 col-md-6 p-2 ">
-<Card className="bg-info p-2 h-100">
+        <div className="col-sm-12 col-lg-3 col-md-6 p-4 ">
+            <Paper elevation={5} className="h-100">
+<Card className="bg-info h-100">
   <Card.Img variant="top" src={feature_1} style={{height:'250px'}} />
   <Card.Body style={{textAlign:'center'}}>
     <Card.Title>Abdominal Pain and Gastric problemss</Card.Title>
@@ -22,11 +23,13 @@ const feature=()=>{
     The abdomen is the area that falls between your chest and pelvis that is commonly referred to as your belly.
      It consists of stomach, liver, small intestine, large intestine, gallbladder, spleen, kidneys, diaphragm, and pancreas among other organs.
     </Card.Text>
-    <Button variant="primary"><NavLink to="/about" className="btn-primary">Read More</NavLink></Button>  </Card.Body>
+    <Button variant="outline-secondary"><NavLink to="/about" style={{color:'white'}}>Read More</NavLink></Button>  </Card.Body>
 </Card>
 </Paper>
-<Paper elevation={3} className="col-sm-12 col-lg-3 col-md-6 p-2 ">
-<Card className="bg-primary p-2 h-100">
+</div>
+<div className="col-sm-12 col-lg-3 col-md-6 p-4 ">
+<Paper elevation={3} className="h-100">
+<Card className="bg-secondary h-100">
   <Card.Img variant="top" src={feature_2} style={{height:'250px'}} />
   <Card.Body style={{textAlign:'center'}}>
     <Card.Title>Dengue</Card.Title>
@@ -34,13 +37,15 @@ const feature=()=>{
     Dengue is a virus-based infection majorly predominant in the tropical regions of the world. 
     The female Aedes mosquito is the vector that transmits dengue causing virus cells from infected people to healthy people through blood-sucking bites.
     </Card.Text>
-    <Button variant="warning"><NavLink to="/about" >Read More</NavLink></Button>
+    <Button variant="outline-info"><NavLink to="/about" style={{color:'white'}}>Read More</NavLink></Button>
   </Card.Body>
 </Card>
 </Paper>
+</div>
+<div className="col-sm-12 col-lg-3 col-md-6  p-4 ">
 
-<Paper elevation={3} className="col-sm-12 col-lg-3 col-md-6  p-2 ">
-<Card className="bg-info p-2 h-100">
+<Paper elevation={3} className="h-100">
+<Card className="bg-info h-100">
   <Card.Img variant="top" src={feature_3}  style={{height:'250px'}} />
   <Card.Body style={{textAlign:'center'}}>
     <Card.Title>Weight Loss/Bariatric Surgery</Card.Title>
@@ -48,12 +53,14 @@ const feature=()=>{
     Bariatric surgery is nothing but the common term collectively used for many types of weight-loss surgeries.
     These surgeries make changes to your digestive system to help you lose weight
     </Card.Text>
-    <Button variant="primary"><NavLink to="/about"  className="btn-primary">Read More</NavLink></Button>  </Card.Body>
+    <Button variant="outline-secondary" className="mt-auto mb-0" ><NavLink to="/about" style={{color:'white'}}>Read More</NavLink></Button>  </Card.Body>
 </Card>
 </Paper>
+</div>
+<div className="col-sm-12 col-lg-3 col-md-6  p-4 ">
 
-<Paper elevation={3} className="col-sm-12 col-lg-3 col-md-6  p-2 ">
-<Card className="bg-primary p-2 h-100">
+<Paper elevation={3} className="h-100">
+<Card className="bg-secondary h-100">
   <Card.Img variant="top" src={feature_4} style={{height:'250px'}}/>
   <Card.Body style={{textAlign:'center'}}>
     <Card.Title>Migraine Headaches</Card.Title>
@@ -61,9 +68,10 @@ const feature=()=>{
     Migraine is generally confused with a normal headache, however the severity of the two are incomparable. 
     Migraine presents with a host of other debilitating symptoms such as nausea, vomiting, sensitivity to loud sounds and lights and general discomfort
     </Card.Text>
-    <Button variant="warning"><NavLink to="/about" >Read More</NavLink></Button>  </Card.Body>
+    <Button variant="outline-info"><NavLink to="/about" style={{color:'white'}}>Read More</NavLink></Button>  </Card.Body>
 </Card>
 </Paper>
+</div>
 
         </div>
         <hr className="m-4" />

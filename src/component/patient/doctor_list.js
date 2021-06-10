@@ -1,5 +1,7 @@
 import React,{useCallback,useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import Spinner from "../spinner/spinner";
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneAlt , faEnvelope ,faUserTie} from '@fortawesome/free-solid-svg-icons';
@@ -67,9 +69,12 @@ export default function Doctorlist(props) {
 
   const classes = useStyles();
 
+  let loader=<Spinner />;
+
 
   return (
     <div>
+    {!list ? loader :''}
         <div className="row p-2">
             {list ? list.map(doc=>{
               
@@ -80,7 +85,7 @@ export default function Doctorlist(props) {
                     <Paper elevation={3}>
                         <Card>
                         
-      <CardActionArea>
+      <CardActionArea style={{cursor:'inherit'}}>
         <CardMedia
           className={classes.media}
         >
@@ -102,23 +107,29 @@ export default function Doctorlist(props) {
         </Typography>
           <Divider />
           <Typography
-          className="row"
           color="textSecondary"
-          variant="body1"
+          variant="h5"
+          style={{textAlign:'center',margin:'auto'}}
         >
           <h5 className='m-2'><FontAwesomeIcon icon={faPhoneAlt} /> {doc.number} </h5>
+        </Typography>
+          <Typography
+          color="textSecondary"
+          variant="h5"
+          style={{textAlign:'center',margin:'auto'}}
+        >
           <h5 className='m-2'><FontAwesomeIcon icon={faEnvelope} /> {doc.email} </h5>
         </Typography>
         </CardContent>
       </CardActionArea>
      
-      <CardActions>
+      <CardActions style={{backgroundColor:'rgb(220, 220, 220)'}}>
       <Link to={{
                 pathname:'/appointment', 
                 id:doc._id,
                 name:doc.firstName
-              }}  style={{textDecoration:'none'}}>
-        <Button size="small" color="primary">
+              }}  style={{textDecoration:'none',margin:'auto'}}>
+        <Button size="medium" color="primary" >
           Make an appointment
         </Button>
         </Link>

@@ -6,6 +6,7 @@ import { faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import * as actions from "../../store/actions/pat_profile_actions";
 import { useSelector, useDispatch } from 'react-redux';
 import firebase from '../firebase';
+import Spinner from "../spinner/spinner";
 
 
 import {
@@ -155,13 +156,16 @@ export default function PatProfile() {
   };
 
 
-
+let loader = <Spinner />;
 
 
 
 
   return (
+    <div>
+    {!user ? loader :
     <div className="row m-2">
+    
       <div className="col-sm-12 col-md-5 col-lg-5 ">
         <Card >
           <CardContent>
@@ -202,13 +206,14 @@ export default function PatProfile() {
                 color="textPrimary"
                 gutterBottom
                 variant="h5"
-                style={{ textTransform: 'capitalize' }}
+                style={{ textTransform: 'capitalize',margin:'auto' }}
               >
                 {`${user ? user.firstName : ''} ${user ? user.lastName : ''}`}
               </Typography>
               <Typography
                 color="textSecondary"
                 variant="body1"
+                style={{margin:'auto'}}
               >
                 {`${user ? user.address ? user.address : '' : ''} ${user ? user.pincode ? user.pincode : '' : ''}`}
 
@@ -216,17 +221,32 @@ export default function PatProfile() {
               <Typography
                 color="textSecondary"
                 variant="body1"
+                style={{margin:'auto'}}
               >
                 {`${user ? user.state ? user.state : '' : ''} ${user ? user.country ? user.country : '' : ''}`}
               </Typography>
-              <Typography
+
+              
+        <Typography
+          color="textSecondary"
+          className="row"
+          variant="body1"
+         
+        >       
+                    <h5  style={{textAlign:'center' ,margin:'auto'}} className='m-2'><FontAwesomeIcon icon={faPhoneAlt} /> {user ? user.number : ''} </h5>
+                    <h5  style={{textAlign:'center' ,margin:'auto'}} className='m-2' ><FontAwesomeIcon icon={faEnvelope} /> {user ? user.email : ''} </h5>
+
+        </Typography>
+
+
+              {/* <Typography
                 className="row"
                 color="textSecondary"
                 variant="body1"
+                style={{margin:'auto'}}
               >
-                <h5 className='m-2'><FontAwesomeIcon icon={faPhoneAlt} /> {user ? user.number : ''} </h5>
                 <h5 className='m-2'><FontAwesomeIcon icon={faEnvelope} /> {user ? user.email : ''} </h5>
-              </Typography>
+              </Typography> */}
             </Box>
           </CardContent>
           <Divider />
@@ -435,6 +455,7 @@ export default function PatProfile() {
           </Card>
         </ValidatorForm>
       </div>
+    </div> }
     </div>
   );
 };

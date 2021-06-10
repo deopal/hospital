@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Spinner from '../spinner/spinner';
 
 
 
@@ -30,12 +31,13 @@ export default function Doctorlist(props) {
   }, [tryList]);
 
 
-
+let loader=<Spinner />;
 
 
 
   return (
       <div className="container p-2">
+      {!list ? loader : 
         <Table striped bordered hover size="sm" style={{textAlign:'center'}}>
           <thead>
             <tr>
@@ -68,7 +70,7 @@ export default function Doctorlist(props) {
               );
             }) : ''}
           </tbody>
-        </Table>
+        </Table> }
       </div>
   );
 }

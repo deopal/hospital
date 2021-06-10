@@ -7,6 +7,8 @@ import {Table} from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from "../../store/actions/doc_operation";
 
+import Spinner from "../spinner/spinner";
+
 
 
 
@@ -27,12 +29,13 @@ export default function Patientlist(props) {
   }, [tryList]);
 
 
-
+let loader =<Spinner />;
 
 
 
   return (
       <div className="container p-2">
+      {!list ? loader :
         <Table striped bordered hover size="sm" style={{textAlign:'center'}}>
           <thead>
             <tr>
@@ -65,7 +68,7 @@ export default function Patientlist(props) {
               );
             }) : '' }
           </tbody>
-        </Table>
+        </Table> }
       </div>
   );
 }

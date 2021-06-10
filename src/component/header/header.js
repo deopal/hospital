@@ -70,7 +70,7 @@ export default function Header(props) {
       <Nav activeKey={window.location.pathname} >
 
       <Button className="mr-5" variant="outline-info" style={{border:'1px green solid'}}>
-      <NavDropdown title="Register" id="collasible-nav-dropdown" >
+      <NavDropdown title="Login" id="collasible-nav-dropdown" >
         <NavDropdown.Item href="/doctor_signin">As a doctor</NavDropdown.Item>
         <NavDropdown.Item href="/patient_signin">As a patient</NavDropdown.Item>
         </NavDropdown></Button>

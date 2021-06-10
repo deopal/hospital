@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneAlt, faEnvelope, faUserTie } from '@fortawesome/free-solid-svg-icons';
-
+import Spinner from "../spinner/spinner";
 
 import { Table } from 'react-bootstrap';
 import {
@@ -71,11 +71,14 @@ export default function Appointmentdetail(props) {
 
 
 
-
+let loader=<Spinner />;
 
 
     return (
+        <div>
+        {doc && list ?
         <div className="container p-2">
+        
             <div className="row m-4">
                 <div className="col-md-6 col-lg-6 col-sm-12 p-2">
 
@@ -99,13 +102,18 @@ export default function Appointmentdetail(props) {
                                         <h5 style={{ textTransform: 'capitalize' }}> <FontAwesomeIcon icon={faUserTie} /> {doc.speciality ? doc.speciality : ''} </h5>
                                     </Typography>
                                     <Typography
-                                        style={{ alignItems: 'center' }}
-                                        className="row"
                                         color="textSecondary"
-                                        variant="body1"
+                                        variant="h5"
+                                        
                                     >
-                                        <h5 className='m-2'><FontAwesomeIcon icon={faPhoneAlt} /> {doc.number} </h5>
-                                        <h5 className='m-2'><FontAwesomeIcon icon={faEnvelope} /> {doc.email} </h5>
+                                        <h5 className='m-2' style={{margin:'auto',textAlign:'center'}}><FontAwesomeIcon icon={faPhoneAlt} /> {doc.number} </h5>
+                                    </Typography>
+                                    <Typography
+                                        color="textSecondary"
+                                        variant="h5"
+                                        
+                                    >
+                                        <h5 className='m-2' style={{margin:'auto',textAlign:'center'}}><FontAwesomeIcon icon={faEnvelope} /> {doc.email} </h5>
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
@@ -184,7 +192,7 @@ export default function Appointmentdetail(props) {
 
             </div>
             <div>
-                {list ? list.reviews ? <Table striped bordered hover size="sm" style={{ textAlign: 'center' }}>
+                {list ? list.reviews ? <Table striped bordered hover size="sm" style={{ textAlign: 'center' , marginTop:'4rem'}}>
                     <thead>
                         <tr>
                             <th>#</th>
@@ -205,7 +213,8 @@ export default function Appointmentdetail(props) {
                         })}
                     </tbody>
                 </Table> : '' : ''}
-            </div>
+            </div> 
+        </div> : loader }
         </div>
     );
 };

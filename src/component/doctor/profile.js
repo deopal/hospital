@@ -7,6 +7,8 @@ import * as actions from "../../store/actions/doc_profile_actions";
 import { useSelector, useDispatch } from 'react-redux';
 import firebase from '../firebase';
 
+import Spinner from "../spinner/spinner";
+
 
 import {
   Box,
@@ -160,11 +162,13 @@ export default function DocProfile() {
   };
 
 
-
+let loader =<Spinner />;
 
 
   return (
     <React.Fragment>
+    {!user ? loader :
+    <div>
       <div className="row m-2">
         <div className="col-sm-12 col-md-5 col-lg-5 mb-4">
           <Card >
@@ -206,20 +210,21 @@ export default function DocProfile() {
                   color="textPrimary"
                   gutterBottom
                   variant="h5"
-                  style={{ textTransform: 'capitalize' }}
+                  style={{ textTransform: 'capitalize',margin:'auto' }}
                 >
                   {`Dr. ${user ? user.firstName : ''} ${user ? user.lastName : ''}`}
                 </Typography>
                 <Typography
                   color="textSecondary"
                   variant="body1"
+                  style={{margin:'auto'}}
                 >
                   <h5 style={{ textTransform: 'capitalize' }}><FontAwesomeIcon icon={faUserTie} /> {user ? user.speciality ? user.speciality : '' : ''} </h5>
                 </Typography>
                 <Typography
                   color="textSecondary"
                   variant="body1"
-                  style={{ textTransform: 'capitalize' }}
+                  style={{ textTransform: 'capitalize' ,margin:'auto'}}
                 >
                   {`${user ? user.address ? user.address : '' : ''} ${user ? user.pincode ? user.pincode : '' : ''}`}
 
@@ -227,7 +232,7 @@ export default function DocProfile() {
                 <Typography
                   color="textSecondary"
                   variant="body1"
-                  style={{ textTransform: 'capitalize' }}
+                  style={{ textTransform: 'capitalize',margin:'auto' }}
                 >
                   {`${user ? user.state ? user.state : '' : ''} ${user ? user.country ? user.country : '' : ''}`}
                 </Typography>
@@ -235,6 +240,7 @@ export default function DocProfile() {
                   className="row"
                   color="textSecondary"
                   variant="body1"
+                  style={{margin:'auto'}}
                 >
                   <h5 className='m-2'><FontAwesomeIcon icon={faPhoneAlt} /> {user ? user.number : ''} </h5>
                   <h5 className='m-2'><FontAwesomeIcon icon={faEnvelope} /> {user ? user.email : ''} </h5>
@@ -465,8 +471,9 @@ export default function DocProfile() {
             </Card>
           </ValidatorForm>
         </div>
-      </div>
+      </div> 
       <hr />
+      </div> }
     </React.Fragment>
   );
 };
