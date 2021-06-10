@@ -48,7 +48,7 @@ export const pat_auth_signin=(email,password,history)=>{
         };
         
        
-        axios.post('/api/patient/signin',authData)
+        axios.post('https://your-hospital.herokuapp.com/api/patient/signin',authData)
         .then(response =>{
             console.log(response);
             if(response.data.error){
@@ -83,7 +83,7 @@ export const pat_auth_signin=(email,password,history)=>{
 export const pat_auth_signup=(authData,history)=>{
     return dispatch=>{
         
-        axios.post('/api/patient/signup',authData)
+        axios.post('https://your-hospital.herokuapp.com/api/patient/signup',authData)
         .then(response =>{
             console.log(response);
             if(response.data.error){

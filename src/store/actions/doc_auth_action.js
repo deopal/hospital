@@ -46,7 +46,7 @@ export const doc_auth_signup=(authData,history)=>{
        
         
 
-        axios.post('/api/doctor/signup',authData)
+        axios.post('https://your-hospital.herokuapp.com/api/doctor/signup',authData)
         .then(response =>{
             console.log(response);
                 if(response.data.error){
@@ -73,7 +73,7 @@ export const doc_auth_signin=(email,password,history)=>{
             password:password
         };
         
-        axios.post('/api/doctor/signin',authData)
+        axios.post('https://your-hospital.herokuapp.com/api/doctor/signin',authData)
         .then(response =>{
             console.log(response);
             if(response.data.error){

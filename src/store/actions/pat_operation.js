@@ -7,7 +7,7 @@ export const make_appointment=(patient,history)=>{
 
     const pat=patient;
     console.log(patient);
-    axios.post("/api/patient/makeAppointment",{...pat})
+    axios.post("https://your-hospital.herokuapp.com/api/patient/makeAppointment",{...pat})
     .then(res=>{
         if(res.data.error){
             console.log(res.data.error);
@@ -34,7 +34,7 @@ export const setDoctorsList=(list)=>{
 
 export const getDoctorsList=()=>{
     return dispatch=>{
-        axios.get("/api/patient/doctorPresent")
+        axios.get("https://your-hospital.herokuapp.com/api/patient/doctorPresent")
         .then(res=>{
             if(res.data.error){
                 console.log(res.data.error);
@@ -67,7 +67,7 @@ export const getappointment=(id)=>{
     return dispatch=>{
         const pat_id=id;
         console.log(pat_id);
-        axios.get(`/api/patient/allAppointments/${pat_id}`)
+        axios.get(`https://your-hospital.herokuapp.com/api/patient/allAppointments/${pat_id}`)
         .then(res=>{
             console.log(res.data);
             dispatch(setAppointment(res.data));
@@ -82,7 +82,7 @@ export const getappointment=(id)=>{
 export const getappointmentbyId=(id)=>{
     return dispatch=>{
         const a_id=id;
-        axios.get(`/api/patient/AppointmentById/${a_id}`)
+        axios.get(`https://your-hospital.herokuapp.com/api/patient/AppointmentById/${a_id}`)
         .then(res=>{
             console.log(res.data);
             dispatch(setAppointment(res.data));
@@ -96,7 +96,7 @@ export const getappointmentbyId=(id)=>{
 
 export const getDoctorsListbyId=(id)=>{
     return dispatch=>{
-        axios.get(`/api/patient/doctorByid/${id}`)
+        axios.get(`https://your-hospital.herokuapp.com/api/patient/doctorByid/${id}`)
         .then(res=>{
             if(res.data.error){
                 console.log(res.data.error);
@@ -117,7 +117,7 @@ export const getDoctorsListbyId=(id)=>{
 
 export const endAppointment=(id)=>{
     return dispatch=>{
-        axios.post(`/api/patient/completeAppointment/${id}`)
+        axios.post(`https://your-hospital.herokuapp.com/api/patient/completeAppointment/${id}`)
         .then(res=>{
             if(res.data.error){
                 console.log(res.data.error);
@@ -133,7 +133,7 @@ export const endAppointment=(id)=>{
 
 export const contactUs=(contact)=>{
     return dispatch=>{
-    axios.post("/api/patient/contact",{...contact})
+    axios.post("https://your-hospital.herokuapp.com/api/patient/contact",{...contact})
     .then(res=>{
         if(res.data.error){
             console.log(res.data.error);
@@ -160,7 +160,7 @@ export const patSetNotification=(note)=>{
 }
 export const patGetNotification=(id)=>{
     return dispatch=>{
-        axios.get(`/api/patient/getNotification/${id}`)
+        axios.get(`https://your-hospital.herokuapp.com/api/patient/getNotification/${id}`)
         .then(res=>{
             console.log(res.data);
             dispatch(patSetNotification(res.data));
@@ -175,7 +175,7 @@ export const removeNotification=(userId,a_id)=>{
     const patientId=userId;
     const appointmentId=a_id;
     return dispatch=>{
-        axios.post(`/api/patient/removeNotification`,{patientId,appointmentId})
+        axios.post(`https://your-hospital.herokuapp.com/api/patient/removeNotification`,{patientId,appointmentId})
         .then(res=>{
             dispatch(patSetNotification(res.data.notification));
             console.log(res.data);

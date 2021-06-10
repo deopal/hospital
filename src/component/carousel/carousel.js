@@ -15,12 +15,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
             };
           
             return (
-                <React.Fragment>
-                <Carousel activeIndex={index} onSelect={handleSelect} className="w-100 h-100">
+                <div >
+                <Carousel activeIndex={index} onSelect={handleSelect} className="w-100 h-100" >
                   <Carousel.Item>
                     <Image
                       className="d-block w-100"
                       src={slider_1}
+                      style={{height:"38rem"}}
                       alt="First slide"
                     />
                     <Carousel.Caption className=" p-2" style={{color:'grey'}}>
@@ -33,6 +34,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                     <Image
                       className="d-block w-100"
                       src={slider_2}
+                      style={{height:"38rem"}}
                       alt="Second slide"
                     />
             
@@ -47,6 +49,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                     <Image
                       className="d-block w-100"
                       src={slider_3}
+                      style={{height:"38rem"}}
                       alt="Third slide"
                     />
             
@@ -61,7 +64,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                   </Carousel.Item>
                 </Carousel>
                 <hr className="m-4" />
-                </React.Fragment>
+                </div>
               );
           }
 

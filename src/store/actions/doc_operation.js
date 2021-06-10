@@ -18,7 +18,7 @@ export const getpatientList=(id)=>{
     return dispatch=>{
         const doc_id=id;
         console.log(doc_id);
-        axios.get(`/api/doctor/getpatientList/${doc_id}`)
+        axios.get(`https://your-hospital.herokuapp.com/api/doctor/getpatientList/${doc_id}`)
         .then(res=>{
             console.log(res.data);
             dispatch(setPatientList(res.data));
@@ -40,7 +40,7 @@ export const setAppointment=(list)=>{
 export const getappointmentbyId=(id)=>{
     return dispatch=>{
         const a_id=id;
-        axios.get(`/api/patient/AppointmentById/${a_id}`)
+        axios.get(`https://your-hospital.herokuapp.com/api/patient/AppointmentById/${a_id}`)
         .then(res=>{
             console.log(res.data);
             dispatch(setAppointment(res.data));
@@ -55,7 +55,7 @@ export const getappointmentbyId=(id)=>{
 export const approveAppointment=(id,pat_id)=>{
     const patientId=pat_id;
     return dispatch=>{
-        axios.post(`/api/doctor/approveAppointments/${id}`,{patientId})
+        axios.post(`https://your-hospital.herokuapp.com/api/doctor/approveAppointments/${id}`,{patientId})
         .then(res=>{
             if(res.data.error){
                 console.log(res.data.error);
@@ -75,7 +75,7 @@ export const addReview=(id,reviews)=>{
         date:new Date().toLocaleString('en-IN').split(',')[0]
     };
     return dispatch=>{
-        axios.post(`/api/doctor/addReviews/${id}`,{review})
+        axios.post(`https://your-hospital.herokuapp.com/api/doctor/addReviews/${id}`,{review})
         .then(res=>{
             if(res.data.error){
                 alert(res.data.error);
@@ -91,7 +91,7 @@ export const addReview=(id,reviews)=>{
 
 export const contactUs=(contact)=>{
     return dispatch=>{
-    axios.post("/api/doctor/contact",{...contact})
+    axios.post("https://your-hospital.herokuapp.com/api/doctor/contact",{...contact})
     .then(res=>{
         console.log(res.data);
         if(res.data.error){
@@ -118,7 +118,7 @@ export const docSetNotification=(note)=>{
 }
 export const docGetNotification=(id)=>{
     return dispatch=>{
-        axios.get(`/api/doctor/getNotification/${id}`)
+        axios.get(`https://your-hospital.herokuapp.com/api/doctor/getNotification/${id}`)
         .then(res=>{
             console.log(res.data);
             dispatch(docSetNotification(res.data));
@@ -133,7 +133,7 @@ export const removeNotification=(userId,a_id)=>{
     const doctorId=userId;
     const appointmentId=a_id;
     return dispatch=>{
-        axios.post(`/api/doctor/removeNotification`,{doctorId,appointmentId})
+        axios.post(`https://your-hospital.herokuapp.com/api/doctor/removeNotification`,{doctorId,appointmentId})
         .then(res=>{
             dispatch(docSetNotification(res.data.notification));
             console.log(res.data);
@@ -146,22 +146,4 @@ export const removeNotification=(userId,a_id)=>{
 
 
 
-// export const getPatientListbyId=(id)=>{
-//     return dispatch=>{
-//         axios.get(`/api/dctor/patientByid/${id}`)
-//         .then(res=>{
-//             if(res.data.error){
-//                 console.log(res.data.error);
-//                 alert(res.data.error);
-//             }
-//             else{
-//             const list=res.data;
-//             console.log(list);
-//             dispatch(setPatientList(list));}
-//         })
-//         .catch(err=>{
-//             alert("something went wrong");
-//             console.log(err);
-//         })
-//     }
-// }
+

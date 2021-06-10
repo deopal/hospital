@@ -14,7 +14,7 @@ export const docGetProfile=(id)=>{
 
     return dispatch=>{
      
-    axios.get(`http://localhost:2000/api/doctor/doctorSetting/${doc_id}` 
+    axios.get(`https://your-hospital.herokuapp.com/api/doctor/doctorSetting/${doc_id}` 
     ).then(res=>{
         console.log(res);
         const profile=res.data;
@@ -34,7 +34,7 @@ export const docEditProfile=(profile)=>{
     const user=localStorage.getItem('userId');
     console.log(settings);
     dispatch(docSetProfile(settings));
-    axios.post(`/api/doctor/updateDoctorSettings/${user}`,{settings}
+    axios.post(`https://your-hospital.herokuapp.com/api/doctor/updateDoctorSettings/${user}`,{settings}
     ).then(res=>{
         alert("Profile updated successfully");
     }).catch(err=>{
@@ -47,7 +47,7 @@ export const docEditProfile=(profile)=>{
 export const uploadImage=(image)=>{
     const id=localStorage.getItem('userId');
     return dispatch=>{
-        axios.post(`/api/doctor/image/${id}`,{image}
+        axios.post(`https://your-hospital.herokuapp.com/api/doctor/image/${id}`,{image}
     ).then(res=>{
         console.log(res.data);
         dispatch(docSetProfile(res.data.doctor));

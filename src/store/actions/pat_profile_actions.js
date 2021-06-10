@@ -13,7 +13,7 @@ export const patGetProfile=(id)=>{
 
     return dispatch=>{
      
-    axios.get(`/api/patient/patientSetting/${doc_id}` 
+    axios.get(`https://your-hospital.herokuapp.com/api/patient/patientSetting/${doc_id}` 
     ).then(res=>{
         
         const profile=res.data;
@@ -34,7 +34,7 @@ export const patEditProfile=(profile)=>{
     const user=localStorage.getItem('userId');
     console.log(settings);
     dispatch(patSetProfile(settings));
-    axios.post(`/api/patient/updateSettings/${user}`,{settings}
+    axios.post(`https://your-hospital.herokuapp.com/api/patient/updateSettings/${user}`,{settings}
     ).then(res=>{
         alert("Profile updated successfully");
     }).catch(err=>{
@@ -47,7 +47,7 @@ export const patEditProfile=(profile)=>{
 export const uploadImage=(image)=>{
     const id=localStorage.getItem('userId');
     return dispatch=>{
-        axios.post(`/api/patient/image/${id}`,{image}
+        axios.post(`https://your-hospital.herokuapp.com/api/patient/image/${id}`,{image}
     ).then(res=>{
         console.log(res.data);
         dispatch(patSetProfile(res.data.patient));
